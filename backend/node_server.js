@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var bodyParser = require('body-parser');
 // This initiates to help getting data from request of type GET
 //var url  = require('url');
 var dbService  = require('./services/dbService.js');
@@ -29,9 +30,9 @@ app.use(function (req, res, next) {
     response.sendfile(path.resolve('../index1.html')) 
 });*/
 
+// Handling data from POST from client side
 app.post('/validate', function(request, response){
-    var url_parts = url.parse(request.url, true);
-    if ( url_parts.query.username == "admin" && url_parts.query.password == "pwd"){
+    if ( request.body.username == "admin" && request.body.password == "pwd"){
         //response.sendFile(path.resolve('../modules/home/views/home.html')); 
         dbService.dbRead(function(data){
             response.send(data);
