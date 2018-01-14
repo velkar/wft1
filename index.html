@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="contactApp">
+<head>
+  
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
+	<script src="../tscripts/angular_1_6_4.min.js"></script>
+	<style>
+         table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+         }
+         
+         table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+                  
+         table tr:nth-child(even) {
+            background-color: #ffffff;
+         }
+    </style>
+</head>
+<body>
+	<h2>AngularJS Sample Application</h2>
+	<div ng-controller = 'lController'>
+		<!--<div dynamic="{{dUrl}}">{{urlContents}}</div>-->
+		<div id='lg'>
+			<h3> {{message}} </h3>
+			<form name="loginForm" novalidate>
+				<table border = "0">
+				   <tr>
+					  <td>Username:</td>
+					  <td><input type="text" name="username" ng-model="username" required>
+						<span ng-show="loginForm.username.$touched && loginForm.username.$invalid">User name is required.</span>
+					  </td>
+				   </tr>
+				   
+				   <tr>
+					  <td>Password: </td>
+					  <td><input name="password" type="password" ng-model="password" required>
+						 <span ng-show="loginForm.password.$touched && loginForm.password.$invalid">Password is required.</span>
+					  </td>
+				   </tr>
+				   <tr>
+					  <td>
+						 <button ng-click="reset()">Reset</button>
+					  </td>
+					  <td>
+						 <button ng-disabled="loginForm.username.$invalid ||
+							loginForm.password.$invalid" ng-click="submitLogin()">Submit</button>
+					  </td>
+				   </tr>
+				</table>
+			</form>
+		</div>
+</div>
+<script src="modules/login/loginController.js"></script>
+<script src="modules/home/homeController.js"></script>
+<script src="bootstrap/bootstrapper.js"></script>
+</body>
+</html>

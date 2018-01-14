@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "cassandra-driver": "^3.3.0",
+    "express": "^4.8.6",
+    "karma": "^0.12.37",
+    "karma-coverage": "^0.2.7",
+    "karma-jasmine": "^0.1.6",
+    "nodemon": "^1.14.3"
+  }
+}

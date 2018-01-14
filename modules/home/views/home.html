@@ -1,0 +1,27 @@
+
+<div ng-controller="hController">
+<h3>{{username}} -  Successfully Logged In</h3>
+<table>
+<tr>
+	<th>User Id</th>
+	<th>First Name</th>
+	<th>Last Name</th>
+</tr>
+<tr ng-repeat="record in waitForIt">
+	<td>
+		<input ng-if='isEdit' type="text" ng-model='record.userid' name='record.userid' ng-disabled="true"/>
+		<p ng-if='!isEdit'>{{record.userid}}</p>
+	</td>
+	<td>
+		<input ng-if='isEdit' type="text" ng-model='record.firstname' name='{{record.userid}}_fname'/>
+		<p ng-if='!isEdit'>{{record.firstname}}</p>
+	</td>
+	<td>
+		<input ng-if='isEdit' type="text" ng-model='record.lastname' name='{{record.userid}}_lname'/>
+		<p ng-if='!isEdit'>{{record.lastname}}</p>
+	</td>
+	<td><input type="button" value="{{editSave}}" ng-click="setEditFlag(record)">
+	
+</tr>
+</table>
+</div>
